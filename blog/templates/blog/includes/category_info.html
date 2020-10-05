@@ -1,0 +1,6 @@
+<h5>{{ category.name }}</h5>
+<p>{{ category.description }}</p>
+<small>
+    Subcategories: {{ category.categories.all|length }}
+    Posts: {{ category.posts.all|length }}
+</small>

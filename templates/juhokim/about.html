@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}About Me{% endblock %}
+
+{% block heading %}About Me{% endblock %}
+
+{% block description %}Related Links{% endblock %}
+
+{% block widgets %}
+
+    <a class="btn btn-primary btn" href="https://github.com/AussieSeaweed" role="button">Github</a>
+    <a class="btn btn-primary btn" href="mailto: juho-kim@outlook.com" role="button">Email</a>
+
+{% endblock %}
+
+{% block content %}
+
+    <embed class="box w-100 min-vh-75" src="{% static "Resume.pdf" %}"/>
+
+{% endblock %}

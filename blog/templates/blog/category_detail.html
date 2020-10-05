@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}{% if object %}{{ object }}{% else %}Blog Root{% endif %}{% endblock %}
+
+{% block heading %}
+
+    {% if object %}
+        {{ object }}
+    {% else %}
+        Browse Blog
+    {% endif %}
+
+{% endblock %}
+
+{% block description %}
+
+    {% if object %}
+        {{ object.description }}
+    {% else %}
+        You are currently at the root of this blog.
+    {% endif %}
+
+{% endblock %}
+
+{% block widgets %}
+
+    {% if object %}
+        <hr/>
+        Parent Directory:
+
+        {% if object.parent %}
+            <a href="{% url "category-detail" pk=object.parent.id %}">{{ object.parent }}</a>
+        {% else %}
+            <a href="{% url "blog-root" %}">Blog Root</a>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="box p-3">
+                <h3>Posts</h3>
+                <hr/>
+
+                <div class="list-group shadow-sm">
+                    {% for post in posts %}
+                        <a class="list-group-item list-group-item-action" href="{% url "post-detail" pk=post.id %}">
+                            {% include "blog/includes/post_info.html" with post=post %}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box p-3">
+                <h3>Subcategories</h3>
+                <hr/>
+
+                <div class="list-group shadow-sm">
+                    {% for category in categories %}
+                        <a class="list-group-item list-group-item-action"
+                           href="{% url "category-detail" pk=category.id %}">
+                            {% include "blog/includes/category_info.html" with category=category %}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
