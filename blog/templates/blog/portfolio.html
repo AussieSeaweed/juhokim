@@ -12,8 +12,8 @@
 
     <div class="row">
         {% for post in object_list %}
-            <div class="col-lg-4 pb-4">
-                <a class="list-group-item list-group-item-action h-100 shadow-sm"
+            <div class="col-lg-6 pb-4">
+                <a class="list-group-item list-group-item-action h-100 rounded shadow-sm"
                    href="{% url "post-detail" pk=post.id %}">
                     {% include "blog/includes/post_info.html" with post=post %}
                 </a>
