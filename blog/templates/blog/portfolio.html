@@ -11,14 +11,20 @@
 {% block content %}
 
     <div class="row">
-        {% for post in object_list %}
-            <div class="col-lg-6 pb-4">
-                <a class="list-group-item list-group-item-action h-100 rounded shadow-sm"
-                   href="{% url "post-detail" pk=post.id %}">
+        <div class="col-md-6">
+            {% for post in object_list|slice:"::2" %}
+                <div class="box p-3">
                     {% include "blog/includes/post_info.html" with post=post %}
-                </a>
-            </div>
-        {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6">
+            {% for post in object_list|slice:"1::2" %}
+                <div class="box p-3">
+                    {% include "blog/includes/post_info.html" with post=post %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}

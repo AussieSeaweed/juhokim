@@ -17,19 +17,20 @@
 
 {% block content %}
 
-    <div class="box p-3">
-        <h3>Recent Posts</h3>
-        <hr/>
-
-        <div class="row">
-            {% for post in recent_posts %}
-                <div class="col-lg-6 pb-4">
-                    <a class="list-group-item list-group-item-action h-100 rounded shadow-sm"
-                       href="{% url "post-detail" pk=post.id %}">
-                        {% include "blog/includes/post_info.html" with post=post %}
-                    </a>
-                </div>
-            {% endfor %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box p-3">
+                <h3>Recent Posts</h3>
+                {% for post in recent_posts %}
+                    <hr/>
+                    {% include "blog/includes/post_info.html" with post=post %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box p-3">
+                <h3>Recent Comments</h3>
+            </div>
         </div>
     </div>
 

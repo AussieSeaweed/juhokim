@@ -1,6 +1,8 @@
-<h5>{{ category.name }}</h5>
-<p>{{ category.description }}</p>
-<small>
-    Subcategories: {{ category.categories.all|length }}
-    Posts: {{ category.posts.all|length }}
-</small>
+<a class="text-decoration-none" href="{% url "category-detail" pk=category.id %}">
+    <h5>{{ category.name }}</h5>
+    <p>{{ category.description }}</p>
+    <small>
+        Subcategories: {{ category.categories.all|length }}
+        Posts: {{ category.posts.all|length }}
+    </small>
+</a>
