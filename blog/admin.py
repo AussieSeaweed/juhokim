@@ -1,20 +1,13 @@
-from django.contrib import admin
-from django.forms import ModelForm, CharField
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django.contrib.admin import register, ModelAdmin
 
 from .models import Category, Post
 
-admin.site.register(Category)
+
+@register(Category)
+class CategoryAdmin(ModelAdmin):
+    list_display = ["name", "parent"]
 
 
-class PostAdminForm(ModelForm):
-    content = CharField(widget=CKEditorUploadingWidget())
-
-    class Meta:
-        model = Post
-        fields = '__all__'
-
-
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    form = PostAdminForm
+@register(Post)
+class PostAdmin(ModelAdmin):
+    list_display = ["name", "parent", "draft", "portfolio", "created_on", "updated_on"]

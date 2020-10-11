@@ -51,8 +51,8 @@
         <div class="flex-fill">
             <header class="jumbotron shadow">
                 <div class="container">
-                    <h1>{% block heading %}{% endblock %}</h1>
-                    <p class="lead">{% block description %}{% endblock %}</p>
+                    <h2>{% block heading %}{% endblock %}</h2>
+                    <p>{% block description %}{% endblock %}</p>
                     {% block widgets %}{% endblock %}
                 </div>
             </header>
@@ -61,7 +61,7 @@
             </main>
         </div>
         <footer class="text-center border-top py-3">
-            <span class="mx-auto">&copy; 2020 - Juho Kim</span>
+            <span class="mx-auto">&copy; {% now "Y" %} - Juho Kim</span>
         </footer>
     </div>
 </div>

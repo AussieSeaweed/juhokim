@@ -1,5 +1,5 @@
-from django.views.generic import DetailView, ListView
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.views.generic import DetailView, ListView
 
 from .models import Category, Post
 
@@ -18,18 +18,18 @@ class CategoryDetailView(DetailView):
 
         return {
             **super().get_context_data(**kwargs),
-            "categories": Category.objects.filter(
-                parent__isnull=True) if category is None else category.categories.all(),
-            "posts": Post.objects.filter(parent__isnull=True,
-                                         draft=False) if category is None else category.posts.filter(draft=False),
+            "categories": Category.objects.filter(parent__isnull=True) if category is None else \
+                category.categories.all(),
+            "posts": Post.objects.filter(parent__isnull=True, draft=False) if category is None else \
+                category.posts.filter(draft=False),
         }
 
 
-class PostDetailView(DetailView, PermissionRequiredMixin):
+class PostDetailView(PermissionRequiredMixin, DetailView):
     model = Post
 
     def has_permission(self):
-        return self.get_object().draft or self.request.user.is_authenticated
+        return not self.get_object().draft or self.request.user.is_authenticated
 
 
 class PortfolioView(ListView):

@@ -148,4 +148,4 @@ DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 
 # Blog
 
-NUM_RECENT_POSTS = 6
+NUM_RECENT_POSTS = 5

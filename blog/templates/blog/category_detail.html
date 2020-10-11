@@ -27,14 +27,11 @@
 {% block widgets %}
 
     {% if object %}
-        <hr/>
-        Parent Directory:
-
-        {% if object.parent %}
-            <a href="{% url "category-detail" pk=object.parent.id %}">{{ object.parent }}</a>
+        <a class="btn btn-primary btn" href="{% if object.parent %}
+            {% url "category-detail" pk=object.parent.pk %}
         {% else %}
-            <a href="{% url "blog-root" %}">Blog Root</a>
-        {% endif %}
+            {% url "blog-root" %}
+        {% endif %}" role="button">Parent</a>
     {% endif %}
 
 {% endblock %}
@@ -44,7 +41,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="box p-3">
-                <h3>Posts</h3>
+                <h4>Posts</h4>
                 {% for post in posts %}
                     <hr/>
                     {% include "blog/includes/post_info.html" with post=post %}
@@ -53,7 +50,7 @@
         </div>
         <div class="col-md-4">
             <div class="box p-3">
-                <h3>Subcategories</h3>
+                <h4>Subcategories</h4>
                 {% for category in categories %}
                     <hr/>
                     {% include "blog/includes/category_info.html" with category=category %}
