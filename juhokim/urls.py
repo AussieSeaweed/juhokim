@@ -16,18 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from django.conf import settings
-from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
-    path("blog/", include("blog.urls")),
+    path('blog/', include(('blog.urls', 'blog'), namespace='blog')),
 
-    path("", TemplateView.as_view(template_name="juhokim/home.html"), name="home"),
-    path("about/", TemplateView.as_view(template_name="juhokim/about.html"), name="about"),
+    path('', TemplateView.as_view(template_name='juhokim/home.html'), name='home'),
+    path('about/', TemplateView.as_view(template_name='juhokim/about.html'), name='about'),
 ]
-
-if settings.DEBUG:
-    urlpatterns.append(path(f"{settings.MEDIA_URL[1:]}<path:path>", serve, {'document_root': settings.MEDIA_ROOT}))

@@ -1,13 +1,13 @@
 from django.contrib.admin import register, ModelAdmin
 
-from .models import Category, Post
+from .models import Tag, Post
 
 
-@register(Category)
-class CategoryAdmin(ModelAdmin):
-    list_display = ["name", "parent"]
+@register(Tag)
+class TagAdmin(ModelAdmin):
+    list_display = ['name']
 
 
 @register(Post)
 class PostAdmin(ModelAdmin):
-    list_display = ["name", "parent", "draft", "portfolio", "created_on", "updated_on"]
+    list_display = ['title', 'draft', 'portfolio', 'created_on', 'updated_on']

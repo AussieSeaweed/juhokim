@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% load static %}
 
@@ -12,14 +12,14 @@
 
     <div class="row">
         <div class="col-md-6">
-            {% for post in object_list|slice:"::2" %}
+            {% for post in object_list|slice:'::2' %}
                 <div class="box p-3">
-                    {% include "blog/includes/post_info.html" with post=post %}
+                    {% include 'blog/includes/post_info.html' with post=post %}
                 </div>
             {% endfor %}
         </div>
         <div class="col-md-6">
-            {% for post in object_list|slice:"1::2" %}
+            {% for post in object_list|slice:'1::2' %}
                 <div class="box p-3">
                     {% include "blog/includes/post_info.html" with post=post %}
                 </div>

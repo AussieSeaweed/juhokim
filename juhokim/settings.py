@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "DEFAULT_SECRET_KEY")
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'DEFAULT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG") == "True"
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split()
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 # Application definition
 
@@ -37,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    "ckeditor",
-    "ckeditor_uploader",
+    'ckeditor',
+    'ckeditor_uploader',
+    'django_sos',
 
-    "blog",
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +70,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                "blog.context_processors.blog"
+                'blog.context_processors.blog'
             ],
         },
     },
@@ -123,28 +125,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / 'static',
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Media files
 
-MEDIA_URL = "/media/"
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = BASE_DIR / "mediafiles"
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # CKEditor
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-
-# Crispy forms
-
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-# Tables2
-
-DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 # Blog
 
