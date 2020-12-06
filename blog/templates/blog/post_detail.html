@@ -2,41 +2,37 @@
 
 {% load static %}
 
-{% block title %}{{ object.name }}{% endblock %}
+{% block title %}{{ object.title }}{% endblock %}
 
 {% block heading %}
 
-    {{ object.name }}{% if object.draft %} <span class="text-warning">(Draft)</span>{% endif %}
+    {{ object.title }} {% if object.draft %}<span class="text-warning">(Draft)</span>{% endif %}
 
 {% endblock %}
 
-{% block description %}
+{% block lead %}
 
     {{ object.description }}
 
-    <p>
-        Category:
+{% endblock %}
 
-        {% if object.parent %}
-            <a href="{% url "category-detail" pk=object.parent.pk %}">{{ object.parent }}</a>
-        {% else %}
-            <a href="{% url "blog-root" %}">Blog Root</a>
-        {% endif %}
-    </p>
+{% block detail %}
 
-    <small class="text-body">
-        Created on: {{ object.created_on }}<br/>
-        {% if object.created_on != object.updated_on %}
-            Updated on: {{ object.updated_on }}
-        {% endif %}
-    </small>
+    Created on: {{ object.created_on }}<br/>
+    {% if object.created_on != object.updated_on %}
+        Updated on: {{ object.updated_on }}
+    {% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <img class="w-100 mt-2" src="{% get_media_prefix %}{{ object.thumbnail }}" alt="Post thumbnail"/>
 
 {% endblock %}
 
 {% block content %}
 
-    <div class="box p-3">
-        {{ object.content|safe }}
-    </div>
+    {{ object.content|safe }}
 
 {% endblock %}

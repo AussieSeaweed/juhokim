@@ -2,18 +2,19 @@
 
 {% block title %}Home{% endblock %}
 
-{% block widgets %}
+{% block heading %}Welcome!{% endblock %}
+
+{% block lead %}
+
+    I am currently studying in the U of T Engineering Science Program. You can look at my blog, portfolio and resume by
+    clicking the corresponding item in the navigation bar.
 
 {% endblock %}
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-8">
-            {% for post in recent_posts %}
-
-            {% endfor %}
-        </div>
-    </div>
+    {% for post in recent_posts %}
+        {% include 'blog/includes/post_info.html' with post=post %}
+    {% endfor %}
 
 {% endblock %}

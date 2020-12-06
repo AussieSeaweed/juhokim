@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}Posts{% endblock %}
+
+{% block heading %}Browse Posts{% endblock %}
+
+{% block content %}
+
+    {% for post in object_list %}
+        {% include 'blog/includes/post_info.html' with post=post %}
+    {% endfor %}
+
+{% endblock %}

@@ -4,8 +4,23 @@
 
 {% block title %}About{% endblock %}
 
+{% block heading %}About me{% endblock %}
+
+{% block lead %}
+
+    My resume is shown at the right.
+
+{% endblock %}
+
+{% block detail %}
+
+    <a class="btn btn-primary btn" href="https://github.com/AussieSeaweed" role="button">Github</a>
+    <a class="btn btn-primary btn" href="mailto: juho-kim@outlook.com" role="button">Email</a>
+
+{% endblock %}
+
 {% block content %}
 
-    <embed class="w-100 min-vh-100 rounded" src="{% static 'Resume.pdf' %}"/>
+    <embed class="w-100 vh-75 rounded" src="{% static 'Resume.pdf' %}"/>
 
 {% endblock %}
