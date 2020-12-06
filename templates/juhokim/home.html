@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'blog/post_list.html' %}
 
 {% block title %}Home{% endblock %}
 
@@ -8,13 +8,5 @@
 
     I am currently studying in the U of T Engineering Science Program. You can look at my blog, portfolio and resume by
     clicking the corresponding item in the navigation bar.
-
-{% endblock %}
-
-{% block content %}
-
-    {% for post in recent_posts %}
-        {% include 'blog/includes/post_info.html' with post=post %}
-    {% endfor %}
 
 {% endblock %}

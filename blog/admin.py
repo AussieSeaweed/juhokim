@@ -1,6 +1,6 @@
-from django.contrib.admin import register, ModelAdmin
+from django.contrib.admin import ModelAdmin, register
 
-from .models import Tag, Post
+from .models import Post, Tag
 
 
 @register(Tag)
