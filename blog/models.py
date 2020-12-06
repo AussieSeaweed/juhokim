@@ -22,7 +22,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
-    thumbnail = models.ImageField(upload_to='thumbnails', blank=True, null=True)
+    thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
     content = RichTextUploadingField(blank=True)
 
     def __str__(self):
