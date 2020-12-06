@@ -3,9 +3,9 @@
 <a class="text-decoration-none" href="{% url "blog:post-detail" pk=post.pk %}">
     <div class="row rounded border mb-1 p-3">
         <div class="col">
-            <h5>{{ post.title }}</h5>
+            <h4>{{ post.title }}</h4>
             <div class="text-muted">
-                <p class="text-muted">{{ post.description }}</p>
+                <p>{{ post.description }}</p>
                 {% if post.tags.all %}
                     <p>Tags: {% for tag in post.tags.all %}{{ tag.name }}, {% endfor %}</p>
                 {% endif %}

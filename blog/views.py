@@ -7,6 +7,9 @@ from .models import Post
 class PostListView(ListView):
     model = Post
 
+    def get_queryset(self):
+        return Post.objects.filter(draft=False)
+
 
 class PostDetailView(PermissionRequiredMixin, DetailView):
     model = Post
@@ -19,4 +22,4 @@ class PortfolioView(PostListView):
     template_name = 'blog/portfolio.html'
 
     def get_queryset(self):
-        return Post.objects.filter(draft=False, portfolio=True)
+        return super().get_queryset().filter(draft=False, portfolio=True)
