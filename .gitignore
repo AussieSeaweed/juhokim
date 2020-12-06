@@ -211,4 +211,4 @@ fabric.properties
 
 # User Custom gitignores
 /staticfiles/
-
+/mediafiles/
