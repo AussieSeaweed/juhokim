@@ -7,7 +7,7 @@
             <div class="text-muted">
                 <p>{{ post.description }}</p>
                 {% if post.tags.all %}
-                    <p>Tags: {% for tag in post.tags.all %}{{ tag.name }}, {% endfor %}</p>
+                    <p>Tags: {{ post.tags.all|join:', ' }}</p>
                 {% endif %}
                 <small>{{ post.created_on }}</small>
             </div>
