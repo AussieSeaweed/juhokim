@@ -138,6 +138,10 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
+# Django SOS
+
+DEBUG_SERVE_MEDIA = True
+
 # Blog
 
 RECENT_POST_COUNT = 5
