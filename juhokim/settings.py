@@ -61,7 +61,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],
-
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +137,7 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
-# Django SOS
+# SOS
 
 DEBUG_SERVE_MEDIA = True
 

@@ -17,7 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/mediafiles" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (juhokim)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (juhokim)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="jquery-3.5.1.slim" level="application" />

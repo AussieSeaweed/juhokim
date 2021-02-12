@@ -1,6 +1,6 @@
 from django.contrib.admin import ModelAdmin, register
 
-from .models import Post, Tag
+from blog.models import Post, Tag
 
 
 @register(Tag)
