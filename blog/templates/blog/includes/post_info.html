@@ -1,6 +1,6 @@
 {% load static %}
 
-<a class="text-decoration-none" href="{% url "blog:post-detail" pk=post.pk %}">
+<a class="text-decoration-none" href="{% url 'blog:post-detail' pk=post.pk %}">
     <div class="row rounded border mb-1 p-3">
         <div class="col">
             <h4>{{ post.title }}</h4>
