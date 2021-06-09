@@ -1,5 +1,12 @@
-daphne
 Django
-django-ckeditor
-django-sos
 Pillow
+crispy-bootstrap5
+django-annoying
+django-ckeditor
+django-crispy-forms
+django-debug-toolbar
+django-extensions
+django-filter
+django-import-export
+django-model-utils
+django-redis
